@@ -156,4 +156,27 @@ bool cariKata(char* word) {
     return false;
 }
 
+int main() {
+    int num;
+    cin >> num;
+    cin.ignore(); 
+
+    char words[num][25]; 
+
+    for (int i = 0; i < num; i++) {
+        cin.getline(words[i], 25);
+        toUpperCase(words[i]); 
+    }
+    cout<<endl;
+    for (int i = 0; i < num; i++) {
+        if (cariKata(words[i])) {
+            cout << "Ada" << endl;
+        } else {
+            cout << "Tidak Ada" << endl;
+        }
+    }
+
+return 0;
+}
+
 
