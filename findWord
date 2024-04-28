@@ -25,3 +25,93 @@ bool carihorizontal(char* word, char matrix[][24], int wordLen) {
     }
     return false;
 }
+
+bool carivertical(char* word, char matrix[][24], int wordlen) {
+    for (int i = 0; i <= 24, i++) {
+        for (int j = 0; j < 24; j++) {
+            bool found = true;
+            for (int k = 0; k < wordlen; k++) {
+                if (matrix[i + k][j] != word[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool caridiagonalataskiri(char* word, char matrix[][24], int wordLen) {
+    for (int i = 0; i < 24; i++) {
+        for (int j = 0; j < 24; j++) {
+            bool found = true;
+            for (int k = 0; k < wordLen; k++) {
+                if (matrix[i - k][j - k] != word[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool caridiagonalataskanan(char* word, char matrix[][24], int wordLen) {
+    for (int i = 0; i < 24; i++) {
+        for (int j = 0; j <= 24; j++) {
+            bool found = true;
+            for (int k = 0; k < wordLen; k++) {
+                if (matrix[i - k][j + k] != word[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool caridiagonalbawahkanan(char* word, char matrix[][24], int wordLen) {
+    for (int i = 0; i <= 24; i++) {
+        for (int j = 0; j <= 24; j++) {
+            bool found = true;
+            for (int k = 0; k < wordLen; k++) {
+                if (matrix[i + k][j + k] != word[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool caridiagonalbawahkiri(char* word, char matrix[][24], int wordLen) {
+    for (int i = 0; i <= 24; i++) {
+        for (int j = 0; j < 24; j++) {
+            bool found = true;
+            for (int k = 0; k < wordLen; k++) {
+                if (matrix[i + k][j - k] != word[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
