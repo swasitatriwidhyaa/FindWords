@@ -115,3 +115,66 @@ bool caridiagonalbawahkiri(char* word, char matrix[][24], int wordLen) {
     }
     return false;
 }
+
+bool cariKata(char* word) {
+    char matrix[24][24] = {
+        "AAFLKHPFSSUFICICLESGNNH",
+        "SFVREOMRWLRTTSXOQQNAOAO",
+        "QEIAIFXAEIRFVFYSXIMINJI",
+        "WSTRLGOCAPBIAFIWIWTUACM",
+        "FEYAEAISTPCRLUJKOAKCERS",
+        "RVDAKPNDEEHDEMSNCKKFOAH",
+        "MRNEDSLCRRIWNRSAAFITMMI",
+        "YAAECIEAHYMOTAVHRSSTISB",
+        "RJSEWELCCENNIETOHWSGLSE",
+        "ATANYYMOIEESNESIOIRELTR",
+        "UTENEWEBHMYBETNNRAIEBEN",
+        "RCLKUTEAEQJLSGSHTGDSKOA",
+        "BHOICATNRRSDDECEHOOLGIT",
+        "ENSLUARIRSETALOCOHCTOHE",
+        "FZFUDQJYMADOYIWYGLOVESU",
+        "TEKALFWONSNAEBMIEJTZNTG",
+        "ESWPOSJXEUTUYOZUWAKEZHM",
+        "KZUHBPEZEERFLMSNOWBALLH",
+        "NSNOWBOARDYTVWYCLEVOHSA",
+        "ACOCRQLGZIYCHODRAZZILBI",
+        "LBVKKWANZAAQINWOLPWONSL",
+        "BFREEZINGRAINSLILGTMELT",
+        "HQPYLWHFMNFFUFPSWXNUMMV"
+    };
+
+    int wordLen = strlen(word);
+
+    if (carihorizontal(word, matrix, wordLen) ||
+        carivertical(word, matrix, wordLen) ||
+        caridiagonalataskiri(word, matrix, wordLen) ||
+        caridiagonalataskanan(word, matrix, wordLen) ||
+        caridiagonalbawahkanan(word, matrix, wordLen) ||
+        caridiagonalbawahkiri(word, matrix, wordLen)) {
+        return true;
+    }
+    return false;
+}
+
+int main() {
+    int num;
+    cin >> num;
+    cin.ignore(); 
+
+    char words[num][25]; 
+
+    for (int i = 0; i < num; i++) {
+        cin.getline(words[i], 25);
+        toUpperCase(words[i]); 
+    }
+    cout<<endl;
+    for (int i = 0; i < num; i++) {
+        if (cariKata(words[i])) {
+            cout << "Ada" << endl;
+        } else {
+            cout << "Tidak Ada" << endl;
+        }
+    }
+
+return 0;
+}
